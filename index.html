@@ -21,6 +21,13 @@ limitations under the License.
     <title>Fireworks!</title>
     <link href="css/fireworks.css" rel="stylesheet">
     <link rel="manifest" href='./manifest.json'>
+
+    <!-- iOS icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-icon" href="./images/fireworks-icon192x192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./images/fireworks-icon192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/fireworks-icon192x192.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="./images/fireworks-icon192x192.png">
   </head>
   <body>
 
@@ -41,6 +48,19 @@ limitations under the License.
         }).catch(function(err) {
           console.log('No it didn\'t. This happened:', err)
         });
+    }
+
+    // Detects if device is on iOS 
+    const isIos = () => {
+        const userAgent = window.navigator.userAgent.toLowerCase();
+        return /iphone|ipad|ipod/.test( userAgent );
+    }
+    // Detects if device is in standalone mode
+    const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
+
+    // Checks if should display install popup notification:
+    if (isIos() && !isInStandaloneMode()) {
+        this.setState({ showInstallMessage: true });
     }
   </script>
 </html>
