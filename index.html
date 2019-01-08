@@ -36,6 +36,11 @@ limitations under the License.
       <img src="images/big-glow.png" id="big-glow" />
       <img src="images/small-glow.png" id="small-glow" />
     </aside>
+
+    <!-- Btn add for home screen -->
+    <div class="vertical-container">
+      <button class="vertical-container" id="addtohomescreenBtn" name="btnAdd" type="button">Add To Home Screen</button>
+    </div>
   </body>
   <script src="third_party/requestanimframe.js"></script>
   <script src="js/fireworks.js"></script>
@@ -61,6 +66,8 @@ limitations under the License.
       // Update UI notify the user they can add to home screen
       btnAdd.style.display = 'block';
     })
+
+    let btnAdd = document.getElementById('addtohomescreenBtn');
 
     btnAdd.addEventListener('click', (e) => {
       // hide our user interface that shows our A2HS button
